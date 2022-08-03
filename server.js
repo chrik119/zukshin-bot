@@ -19,9 +19,14 @@ client.connect();
 client.on('message', (channel, tags, message, self) => {
   if (self) return;
 
-  const [raw, command, args] = message.toLowerCase().match(regexpCommand);
+  try{
+    const [raw, command, args] = message.toLowerCase().match(regexpCommand);
 
-  if (command === 'hello') {
-    client.say(channel, `@${tags.username}, heya!`);
+    if (command === 'hello') {
+      client.say(channel, `@${tags.username}, heya!`);
+    }
+  }catch(err){
+    continue;
   }
+  return;
 });
