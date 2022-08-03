@@ -26,7 +26,7 @@ client.on('message', (channel, tags, message, self) => {
       client.say(channel, `@${tags.username}, heya!`);
     }
   }catch(err){
-    continue;
+    
   }
   return;
 });
